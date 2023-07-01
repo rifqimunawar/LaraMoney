@@ -51,6 +51,7 @@
 @include('admin.partials.settings')
 @include('admin.partials.script')
 </body>
+@include('sweetalert::alert')
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
