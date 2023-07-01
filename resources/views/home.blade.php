@@ -19,20 +19,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('template/assets/img/apple-icon.png') }}">
-  <link rel="icon" type="image/png" href="template/assets/img/favicon.png">
+  <link rel="icon" type="image/png" href="{{ asset('template/assets/img/favicon.png') }}">
   <title>
     Money Management
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
-  <link href="template/assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="template/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="{{ asset('template/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+  <link href="{{ asset('template/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="template/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="{{ asset('template/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
   <!-- CSS Files -->
-  <link id="pagestyle" href="template/assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+  <link id="pagestyle" href="{{ asset('template/assets/css/soft-ui-dashboard.css?v=1.0.7') }}" rel="stylesheet" />
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
@@ -160,7 +160,7 @@
     </nav> --}}
     <!-- End Navbar -->
   </div>
-  <div class="border-radius-xl mt-3 mx-3 position-relative" style="background-image: url('template/assets/img/vr-bg.jpg') ; background-size: cover;">
+  <div class="border-radius-xl mt-3 mx-3 position-relative" style="background-image: url('{{ asset('template/assets/img/vr-bg.jpg') }}'); background-size: cover;"></div>
     {{-- <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
       <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
@@ -365,7 +365,7 @@
           <div class="row pt-10">
             <div class="col-lg-1 col-md-1 pt-5 pt-lg-0 ms-lg-5 text-center">
               <a href="javascript:;" class="avatar avatar-md border-0" data-bs-toggle="tooltip" data-bs-placement="left" title="My Profile">
-                <img class="border-radius-lg" alt="Image placeholder" src="template/assets/img/team-1.jpg">
+                <img class="border-radius-lg" alt="Image placeholder" src="{{ asset('template/assets/img/team-1.jpg') }}">
               </a>
               <a href="{{ route('dashboard') }}">
                 <button class="btn btn-white border-radius-lg p-2 mt-2" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Home">
@@ -387,7 +387,7 @@
                   <h3 class="text-uppercase mb-0 ms-1">Money Management</h3>
                 </div>
                 <div class="ms-auto">
-                  <img class="w-50 float-end mt-lg-n4" src="template/assets/img/small-logos/icon-sun-cloud.png" alt="image sun">
+                  <img class="w-50 float-end mt-lg-n4" src="{{ asset('template/assets/img/small-logos/icon-sun-cloud.png') }}" alt="image sun">
                 </div>
               </div>
               <div class="row mt-4">
@@ -451,7 +451,7 @@
                 <div class="col-lg-4 col-md-4 mt-4 mt-sm-0">
                   <div class="card card-background card-background-mask-primary move-on-hover align-items-start">
                     <div class="cursor-pointer">
-                      <div class="full-background" style="background-image: url('template/assets/img/curved-images/curved1.jpg')"></div>
+                      <div class="full-background" style="background-image: url('{{ asset('template/assets/img/curved-images/curved1.jpg') }}')"></div>
                       <div class="card-body">
                         <h5 class="text-white mb-0">Some Kind Of Blues</h5>
                         <p class="text-white text-sm">Deftones</p>
@@ -476,16 +476,16 @@
                         <div class="ms-auto">
                           <div class="avatar-group">
                             <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="2 New Messages">
-                              <img alt="Image placeholder" src="template/assets/img/team-1.jpg">
+                              <img alt="Image placeholder" src="{{ asset('template/assets/img/team-1.jpg') }}">
                             </a>
                             <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="1 New Message">
-                              <img alt="Image placeholder" src="template/assets/img/team-2.jpg">
+                              <img alt="Image placeholder" src="{{ asset('template/assets/img/team-2.jpg') }}">
                             </a>
                             <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="13 New Messages">
-                              <img alt="Image placeholder" src="template/assets/img/team-3.jpg">
+                              <img alt="Image placeholder" src="{{ asset('template/assets/img/team-3.jpg') }}">
                             </a>
                             <a href="javascript:;" class="avatar avatar-sm border-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="7 New Messages">
-                              <img alt="Image placeholder" src="template/assets/img/team-4.jpg">
+                              <img alt="Image placeholder" src="{{ asset('template/assets/img/team-4.jpg') }}">
                             </a>
                           </div>
                         </div>
@@ -599,10 +599,10 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="template/assets/js/core/popper.min.js"></script>
-  <script src="template/assets/js/core/bootstrap.min.js"></script>
-  <script src="template/assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="template/assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="{{ asset('template/assets/js/core/popper.min.js') }}"></script>
+  <script src="{{ asset('template/assets/js/core/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('template/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+  <script src="{{ asset('template/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -615,7 +615,7 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="template/assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+  <script src="{{ asset('template/assets/js/soft-ui-dashboard.min.js?v=1.0.7') }}"></script>
 </body>
 
 </html>
