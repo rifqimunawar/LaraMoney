@@ -1,0 +1,4 @@
+1. fitur statistik
+2. route register
+3. edit logo laravel jadi logo tertentu
+4. fitur hapus category jika ada field terkait maka tidak dapat dihapus

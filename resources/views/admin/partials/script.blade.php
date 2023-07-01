@@ -91,7 +91,7 @@
     data: {
       labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       datasets: [{
-          label: "Mobile apps",
+          label: "Income",
           tension: 0.4,
           borderWidth: 0,
           pointRadius: 0,
@@ -99,12 +99,12 @@
           borderWidth: 3,
           backgroundColor: gradientStroke1,
           fill: true,
-          data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+          data: [100, 400, 300, 220, 500, 250, 400, 230, 500],
           maxBarThickness: 6
 
         },
         {
-          label: "Websites",
+          label: "Cost",
           tension: 0.4,
           borderWidth: 0,
           pointRadius: 0,
@@ -115,7 +115,7 @@
           data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
           maxBarThickness: 6
         },
-      ],
+      ],  
     },
     options: {
       responsive: true,
