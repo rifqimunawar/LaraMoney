@@ -2,61 +2,21 @@
 @extends('.admin.layouts')
 @section('content')
 
-<!--
-=========================================================
-* Soft UI Dashboard - v1.0.7
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <title>
-    Soft UI Dashboard by Creative Tim
-  </title>
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
-  <!-- Nepcha Analytics (nepcha.com) -->
-  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
-</head>
-
 <body class="g-sidenav-show  bg-gray-100">
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
           <div class="card">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Money</p>
-                    <h5 class="font-weight-bolder mb-0">
-                      $53,000
-                      <span class="text-success text-sm font-weight-bolder">+55%</span>
-                    </h5>
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Income</p>
+                    <h6 class="font-weight-bolder mb-0">
+                      Rp: {{ number_format ($totalDebit, 0, ',', '.') }}
+                      {{-- <span class="text-success text-sm font-weight-bolder">+55%</span> --}}
+                    </h6>
                   </div>
                 </div>
                 <div class="col-4 text-end">
@@ -68,17 +28,17 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
           <div class="card">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Users</p>
-                    <h5 class="font-weight-bolder mb-0">
-                      2,300
-                      <span class="text-success text-sm font-weight-bolder">+3%</span>
-                    </h5>
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Cost</p>
+                    <h6 class="font-weight-bolder mb-0">
+                      Rp: {{ number_format ($totalKredit, 0, ',', '.') }}
+                      {{-- <span class="text-success text-sm font-weight-bolder">+3%</span> --}}
+                    </h6>
                   </div>
                 </div>
                 <div class="col-4 text-end">
@@ -90,17 +50,17 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
           <div class="card">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">New Clients</p>
-                    <h5 class="font-weight-bolder mb-0">
-                      +3,462
-                      <span class="text-danger text-sm font-weight-bolder">-2%</span>
-                    </h5>
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Saldo</p>
+                    <h6 class="font-weight-bolder mb-0">
+                      Rp: {{ number_format ($totalSaldo, 0, ',', '.') }}
+                      {{-- <span class="text-danger text-sm font-weight-bolder">-2%</span> --}}
+                    </h6>
                   </div>
                 </div>
                 <div class="col-4 text-end">
@@ -112,7 +72,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6">
+        {{-- <div class="col-xl-3 col-sm-6">
           <div class="card">
             <div class="card-body p-3">
               <div class="row">
@@ -133,9 +93,25 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
       <div class="row mt-4">
+        <div class="col-lg-7 mb-lg-0 mb-4">
+          <div class="card z-index-2">
+            <div class="card-header pb-0">
+              <h6>Seminggu Terakhir</h6>
+              <p class="text-sm">
+                {{-- <i class="fa fa-arrow-up text-success"></i> --}}
+                {{-- <span class="font-weight-bold">4% more</span> in 2021 --}}
+              </p>
+            </div>
+            <div class="card-body p-3">
+              <div class="chart">
+                <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="col-lg-5 mb-lg-0 mb-4">
           <div class="card z-index-2">
             <div class="card-body p-3">
@@ -252,25 +228,11 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-7">
-          <div class="card z-index-2">
-            <div class="card-header pb-0">
-              <h6>Sales overview</h6>
-              <p class="text-sm">
-                <i class="fa fa-arrow-up text-success"></i>
-                <span class="font-weight-bold">4% more</span> in 2021
-              </p>
-            </div>
-            <div class="card-body p-3">
-              <div class="chart">
-                <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   </main>
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -460,8 +422,5 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
-</body>
-
-</html>
 
 @endsection

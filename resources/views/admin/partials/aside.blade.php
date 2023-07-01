@@ -29,7 +29,13 @@
           <span class="nav-link-text ms-1">Dashboard</span>
         </a>
       </li>
-      <li class="nav-item">
+
+      
+      <li class="nav-item mt-3">
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Income & Cost</h6>
+      </li>
+
+      {{-- <li class="nav-item">
         <a class="nav-link  " href="template/pages/tables.html">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -48,7 +54,7 @@
           </div>
           <span class="nav-link-text ms-1">Tables</span>
         </a>
-      </li>
+      </li> --}}
       <li class="nav-item">
         <a class="nav-link  {{ (Route::currentRouteName() == 'debit') ? 'active' : '' }}" href="{{ route('debit') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -71,7 +77,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link  {{ (Route::currentRouteName() == 'kredit*') ? 'active' : '' }}" href="{{ route('kredit') }}">
+        <a class="nav-link  {{ (Route::currentRouteName() == 'kredit') ? 'active' : '' }}" href="{{ route('kredit') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
@@ -91,28 +97,12 @@
         </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link  " href="template/pages/billing.html">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-            <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <title>credit-card</title>
-              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                  <g transform="translate(1716.000000, 291.000000)">
-                    <g transform="translate(453.000000, 454.000000)">
-                      <path class="color-background opacity-6" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
-                      <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
-          </div>
-          <span class="nav-link-text ms-1">Billing</span>
-        </a>
+      <li class="nav-item mt-3">
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Category</h6>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link  " href="template/pages/virtual-reality.html">
+        <a class="nav-link  {{ (Route::currentRouteName() == 'CategoryDebit') ? 'active' : '' }}" href="{{ route('CategoryDebit') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>box-3d-50</title>
@@ -129,10 +119,31 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">Virtual Reality</span>
+          <span class="nav-link-text ms-1">Category Income</span>
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link  {{ (Route::currentRouteName() == 'CategoryKredit') ? 'active' : '' }}" href="{{ route('CategoryKredit') }}">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+            <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <title>credit-card</title>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                  <g transform="translate(1716.000000, 291.000000)">
+                    <g transform="translate(453.000000, 454.000000)">
+                      <path class="color-background opacity-6" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
+                      <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <span class="nav-link-text ms-1">Category Cost</span>
+        </a>
+      </li>
+
+      {{-- <li class="nav-item">
         <a class="nav-link  " href="template/pages/rtl.html">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -152,12 +163,12 @@
           </div>
           <span class="nav-link-text ms-1">RTL</span>
         </a>
-      </li>
+      </li> --}}
       <li class="nav-item mt-3">
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
       </li>
       <li class="nav-item">
-        <a class="nav-link  " href="template/pages/profile.html">
+        <a class="nav-link  " href="{{ route('profile.edit') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>customer-support</title>
@@ -177,8 +188,8 @@
           <span class="nav-link-text ms-1">Profile</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link  " href="template/pages/sign-in.html">
+      {{-- <li class="nav-item">
+        <a class="nav-link  " href="">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
@@ -196,10 +207,13 @@
           </div>
           <span class="nav-link-text ms-1">Sign In</span>
         </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link  " href="template/pages/sign-up.html">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+      </li> --}}
+      <li class="nav-item" style="cursor: pointer">
+
+        <form action="{{ route('logout') }}" method="POST" class="nav-link" >
+          @csrf
+          <button type="submit" style="border: none" class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          <div >
             <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>spaceship</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -216,8 +230,9 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">Sign Up</span>
-        </a>
+        </button>
+        <span class="nav-link-text ms-1">Logout</span>
+      </form>
       </li>
     </ul>
   </div>

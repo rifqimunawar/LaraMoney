@@ -1,4 +1,4 @@
-@section('title') {{ 'Income' }}@endsection
+@section('title') {{ 'Edit Income' }}@endsection
 @extends('.admin.layouts')
 @section('content')
 

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Kredit;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +21,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'rifqi@gmail.com',
             'password' => Hash::make('rifqi'),
         ]);
+
+
+
+        // Debit Category
+        // =================================
+        // =================================
         DB::table('category_debits')->insert([
             'name' => 'Penjualan Makanan',
         ]);
@@ -30,6 +37,29 @@ class DatabaseSeeder extends Seeder
             'name' => 'Penjualan Rokok',
         ]);
 
+
+
+        // Kredit Category
+        // =================================
+        // =================================
+        DB::table('category_kredits')->insert([
+            'name' => 'Pembelian Stok Barang',
+        ]);
+        DB::table('category_kredits')->insert([
+            'name' => 'Biaya Listrik dan Air',
+        ]);
+        DB::table('category_kredits')->insert([
+            'name' => 'Biaya Transportasi',
+        ]);
+        DB::table('category_kredits')->insert([
+            'name' => 'Biaya Operasional',
+        ]);
+
+
+
+        // Debit
+        // =================================
+        // =================================
         $date = Carbon::now();
         $newDate = $date->format('Y-m-d');
 
@@ -48,5 +78,29 @@ class DatabaseSeeder extends Seeder
             'created_at' => $newDate
         ];
         DB::table('debits')->insert($data);
+
+
+        // Kredit
+        // =================================
+        // =================================
+
+        $date = Carbon::now();
+        $newDate = $date->format('Y-m-d');
+
+        $data = [
+            'rp' => '20000',
+            'category_id' => '1',
+            'description' => 'Transportasi',
+            'created_at' => $newDate
+        ];
+        DB::table('kredits')->insert($data);
+
+        $data = [
+            'rp' => '25000',
+            'category_id' => '2',
+            'description' => 'Kebutuhan Pribadi',
+            'created_at' => $newDate
+        ];
+        DB::table('kredits')->insert($data);
     }
 }

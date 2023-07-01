@@ -10,8 +10,8 @@
           <h5>Data Uang Masuk</h5>
           <a href="{{ route('debit.create') }}" class="btn btn-primary btn-xs">Add Income  +</a>
           <p class="text-xs text-secondary font-weight opacity-7" >
-            Total Uang Masuk Rp: {{ $totalRp }}</p >
-            {{-- Total Uang Masuk Rp: </p > --}}
+            {{-- Total Uang Masuk Rp: {{ $totalRp }}</p > --}}
+            Total Uang Masuk Rp: {{ number_format($totalRp, 0, ',', '.') }} </p >
         </div>
         <div class="card-body px-0 pt-0 pb-2">
           <div class="table-responsive p-0">
