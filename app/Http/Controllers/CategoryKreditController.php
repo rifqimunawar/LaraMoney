@@ -11,7 +11,7 @@ class CategoryKreditController extends Controller
 {
     public function index()
     {
-        $categories = CategoryKredit::with('kredit')->latest()->get();
+        $categories = CategoryKredit::withSum('kredit', 'rp')->latest()->get();
         $kreditRPs = $categories->pluck('kredit')->flatten()->pluck('rp');
         // dd($categories);
         return view('admin.category-kredits.index', compact('categories', 'kreditRPs'));
@@ -45,19 +45,20 @@ class CategoryKreditController extends Controller
       return redirect()->route('CategoryKredit');
     }
 
-    public function destroy(int $id) : RedirectResponse
+    public function destroy($id)
     {
         $category = CategoryKredit::findOrFail($id);
+        $category->load('kredit');
     
-        if ($category->Kredit()->exists()) {
-            Alert::error('Mohon Maaf!', 'Category Tidak Bisa Dihapus Untuk Saat Ini.');
-            return redirect()->route('CategoryKredit');
+        // Memeriksa apakah ada relasi yang terkait dengan kategori
+        if ($category->kredit && $category->kredit->count() > 0) {
+            Alert::error('Mohon Maaf', 'Kategori memiliki postingan terkait dan tidak dapat dihapus');
+            return redirect()->back();
         }
-    // dd($category);
+    
         $category->delete();
     
-        Alert::success('Terima Kasih', 'Data Category Berhasil Dihapus');
+        Alert::success('Terima Kasih', 'Data Berhasil Dihapus');
         return redirect()->route('CategoryKredit');
     }
-    
 }

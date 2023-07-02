@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Debit;
 use Illuminate\Http\Request;
 use App\Models\CategoryDebit;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryDebitController extends Controller
 {
     public function index()
     {
-        $categories = CategoryDebit::with('debit')->latest()->get();
-        $debitRPs = $categories->pluck('debit')->flatten()->pluck('rp');
-        // dd($categories);
+        $categories = CategoryDebit::withSum('debit', 'rp')->latest()->get();
+        $debitRPs = Debit::with('category')->sum('rp');
         return view('admin.category-debits.index', compact('categories', 'debitRPs'));
     }
 
@@ -44,18 +45,23 @@ class CategoryDebitController extends Controller
       Alert::success('Terima Kasih', 'Data Berhasil Diubah');
       return redirect()->route('CategoryDebit');
     }
-    public function destroy(int $id) : RedirectResponse
+
+    public function destroy($id)
     {
         $category = CategoryDebit::findOrFail($id);
+        $category->load('debit');
     
-        if ($category->Debit()->exists()) {
-            Alert::error('Mohon Maaf!', 'Category Tidak Bisa Dihapus Untuk Saat Ini.');
-            return redirect()->route('CategoryDebit');
+        // Memeriksa apakah ada relasi yang terkait dengan kategori
+        if ($category->debit && $category->debit->count() > 0) {
+            Alert::error('Mohon Maaf', 'Kategori memiliki postingan terkait dan tidak dapat dihapus');
+            return redirect()->back();
         }
-    // dd($category);
+    
         $category->delete();
     
-        Alert::success('Terima Kasih', 'Data Category Berhasil Dihapus');
+        Alert::success('Terima Kasih', 'Data Berhasil Dihapus');
         return redirect()->route('CategoryDebit');
     }
 }
+
+

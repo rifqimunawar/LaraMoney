@@ -11,11 +11,14 @@ class DebitController extends Controller
 {
     public function index()
     {
-        $debits = Debit::whereNotNull('category_id')->latest()->get();
+        $debits = Debit::with('category')->latest()->get();
         $totalRp = Debit::sum('rp');
-        
+    
+        // dd($debits);
+    
         return view('admin.debits.index', compact('debits', 'totalRp'));
     }
+    
     
 
     public function create(){

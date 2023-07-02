@@ -16,27 +16,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $this->call([
+            CategoryDebitSeeder::class,
+            DebitSeeder::class,
+        ]);
+
         DB::table('users')->insert([
             'name' => 'Rifqi Munawar',
             'email' => 'rifqi@gmail.com',
             'password' => Hash::make('rifqi'),
         ]);
-
-
-
-        // Debit Category
-        // =================================
-        // =================================
-        DB::table('category_debits')->insert([
-            'name' => 'Penjualan Makanan',
-        ]);
-        DB::table('category_debits')->insert([
-            'name' => 'Penjualan Minuman',
-        ]);
-        DB::table('category_debits')->insert([
-            'name' => 'Penjualan Rokok',
-        ]);
-
 
 
         // Kredit Category
@@ -54,30 +44,6 @@ class DatabaseSeeder extends Seeder
         DB::table('category_kredits')->insert([
             'name' => 'Biaya Operasional',
         ]);
-
-
-
-        // Debit
-        // =================================
-        // =================================
-        $date = Carbon::now();
-        $newDate = $date->format('Y-m-d');
-
-        $data = [
-            'rp' => '20000',
-            'category_id' => '1',
-            'description' => 'Jajanan Anak-anak',
-            'created_at' => $newDate
-        ];
-        DB::table('debits')->insert($data);
-
-        $data = [
-            'rp' => '25000',
-            'category_id' => '2',
-            'description' => 'Air Mineral',
-            'created_at' => $newDate
-        ];
-        DB::table('debits')->insert($data);
 
 
         // Kredit

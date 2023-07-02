@@ -29,7 +29,7 @@
                     <tr>
                         <td class="text-center text-xs">{{ $loop->iteration }}</td>
                         <td class="text-xs">{{ $category->name }}</td>
-                        <td class="text-xs">{{ $category->count()}}</td>
+                        <td class="text-xs">Rp: {{ number_format($category->debit_sum_rp ?? 0, 0, ',', '.') }}</td>
                         <td class="text-center text-xs">
                             <form action="/dahsboard/CategoryDebit/{{ $category->id }}" method="POST">
                                 <a class="btn btn-link text-dark px-3 mb-0" href="/dahsboard/CategoryDebit/
@@ -37,14 +37,14 @@
                                   </i>Edit</a>
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-link text-danger text-gradient px-3 mb-0" onclick="return confirm ('Apakah Anda yakin ingin menghapus Data ini?')">
-                                    <i class="far fa-trash-alt me-2"></i>Delete
-                                </button>
+                                <button type="submit" class="btn btn-link text-danger text-gradient px-3 mb-0" 
+                                      onclick="return confirm('Apakah Anda yakin ingin menghapus Data ini?');">
+                                  <i class="far fa-trash-alt me-2"></i>Delete
+                              </button>
                             </form>
                         </td>
                     </tr>
                 @endforeach
-
               </tbody>
             </table>
           </div>

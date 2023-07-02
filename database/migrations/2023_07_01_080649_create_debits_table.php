@@ -9,16 +9,19 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('debits', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('category_id');
             $table->string('rp');
-            $table->string('category_id');
             $table->string('description')->nullable();
             $table->timestamps();
+    
         });
     }
+    
+    
 
     /**
      * Reverse the migrations.

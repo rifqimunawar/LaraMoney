@@ -29,7 +29,7 @@
                     <tr>
                         <td class="text-center text-xs">{{ $loop->iteration }}</td>
                         <td class="text-xs">{{ $category->name }}</td>
-                        <td class="text-xs">{{ $category->count()}}</td>
+                        <td class="text-xs">Rp: {{ number_format($category->kredit_sum_rp ?? 0, 0, ',', '.') }}</td>
                         <td class="text-center text-xs">
                             <form action="/dahsboard/CategoryKredit/{{ $category->id }}" method="POST">
                                 <a class="btn btn-link text-dark px-3 mb-0" href="/dahsboard/CategoryKredit/{{ $category->id }}/edit"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>

@@ -11,9 +11,8 @@ class KreditController extends Controller
 {
     public function index()
     {
-        $kredits = Kredit::whereNotNull('category_id')->latest()->get();
+        $kredits = Kredit::with('category')->latest()->get();
         $totalRp = Kredit::sum('rp');
-        // dd($kredits);
         
         return view('admin.kredits.index', compact('kredits', 'totalRp'));
     }

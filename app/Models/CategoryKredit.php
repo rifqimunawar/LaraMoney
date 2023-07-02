@@ -11,6 +11,7 @@ class CategoryKredit extends Model
     protected $guarded=[];
     public function kredit()
     {
-        return $this->belongsTo(Kredit::class);
+        return $this->hasMany(Kredit::class, 'category_id');
+
     }
 }

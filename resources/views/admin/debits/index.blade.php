@@ -33,6 +33,7 @@
                   <td class="text-xs">{{ $debit->created_at->format('Y-m-d') }}</td>
                   <td class="text-xs">{{ number_format($debit->rp, 0, ',', '.') }}</td>
                   <td class="text-xs">{{ $debit->category->name }}</td>
+                  {{-- <td class="text-xs">{{ $debit->category->name ?? 'N/A' }}</td> --}}
                   <td class="text-xs">{{ $debit->description }}</td>
                   <td class="text-center text-xs">
                     <form action="/dahsboard/debit/{{ $debit->id }}"method="POST">
