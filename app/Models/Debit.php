@@ -13,7 +13,7 @@ class Debit extends Model
 
     public function category()
     {
-        return $this->belongsTo(CategoryKredit::class, 'category_id');
+        return $this->belongsTo(CategoryDebit::class, 'category_id');
     }
 }
 
