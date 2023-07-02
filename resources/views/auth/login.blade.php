@@ -1,4 +1,4 @@
-<x-guest-layout>
+{{-- <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -44,7 +44,7 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-guest-layout> --}}
 
 
 
@@ -62,7 +62,7 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
-{{-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -156,18 +156,29 @@
               <div class="card card-plain mt-8">
                 <div class="card-header pb-0 text-left bg-transparent">
                   <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
-                  <p class="mb-0">Enter your email and password to sign in</p>
+                  <p class="mb-0">Enter your email and password</p>
                 </div>
                 <div class="card-body">
-                  <form role="form" method="post" action="/login">
+                  <form role="form" method="post" action="{{ route('login') }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <label>Email</label>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                      <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                     </div>
+                    @if ($errors->has('email'))
+                    <span class="text-danger">
+                      {{ $errors->first('email') }}
+                    </span>
+                    @endif
                     <label>Password</label>
                     <div class="mb-3">
                       <input type="password" class="form-control" placeholder="Password" name="password" aria-label="Password" aria-describedby="password-addon">
                     </div>
+                    @if ($errors->has('password'))
+                    <span class="text-danger">
+                      {{ $errors->first('password') }}
+                    </span>
+                    @endif
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
                       <label class="form-check-label" for="rememberMe">Remember me</label>
@@ -176,18 +187,26 @@
                       <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
                     </div>
                   </form>
+
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-4 text-sm mx-auto">
+                  <p class="mb-2 text-sm mx-auto">
                     Don't have an account?
                     <a href="javascript:;" class="text-info text-gradient font-weight-bold">Sign up</a>
                   </p>
                 </div>
               </div>
+              <div class="row">
+                  <p class="mb-0 text-secondary">
+                    Copyright © <script>
+                      document.write(new Date().getFullYear())
+                    </script> Soft by Rifqi Munawar.
+                  </p>
+              </div>
             </div>
             <div class="col-md-6">
               <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('../assets/img/curved-images/curved6.jpg')"></div>
+                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url({{ asset('template/assets/img/curved-images/curved6.jpg') }})"></div>
               </div>
             </div>
           </div>
@@ -196,7 +215,7 @@
     </section>
   </main>
   <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-  <footer class="footer py-5">
+  {{-- <footer class="footer py-5">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mb-4 mx-auto text-center">
@@ -242,12 +261,12 @@
           <p class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())
-            </script> Soft by Creative Tim.
+            </script> Soft by Rifqi Munawar.
           </p>
         </div>
       </div>
     </div>
-  </footer>
+  </footer> --}}
   <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
@@ -269,4 +288,4 @@
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
 </body>
 
-</html> --}}
+</html>
