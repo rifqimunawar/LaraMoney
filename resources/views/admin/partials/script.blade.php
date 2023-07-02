@@ -99,7 +99,7 @@
           borderWidth: 3,
           backgroundColor: gradientStroke1,
           fill: true,
-          data: [100, 400, 300, 220, 500, 250, 400, 230, 500],
+          data: [100, 400, 300, 520, 500, 250, 400, 230, 500],
           maxBarThickness: 6
 
         },

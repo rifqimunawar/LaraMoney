@@ -7,49 +7,55 @@
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Income</p>
-                    <h6 class="font-weight-bolder mb-0">
-                      Rp: {{ number_format ($totalDebit, 0, ',', '.') }}
-                      {{-- <span class="text-success text-sm font-weight-bolder">+55%</span> --}}
-                    </h6>
+            <a href="{{ route('debit') }}">
+              <div class="card">
+                <div class="card-body p-3">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="numbers">
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Income</p>
+                        <h6 class="font-weight-bolder mb-0">
+                          Rp: {{ number_format ($totalDebit, 0, ',', '.') }}
+                          <span class="p-2"><i class="fa fa-arrow-up text-success"></i></span>
+                          {{-- <span class="text-success text-sm font-weight-bolder">+55%</span> --}}
+                        </h6>
+                      </div>
+                    </div>
+                    <div class="col-4 text-end">
+                      <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                        <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+              </div>
+            </a>
+          </div>
+          <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+            <a href="{{ route('kredit') }}">
+            <div class="card">
+              <div class="card-body p-3">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="numbers">
+                      <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Cost</p>
+                      <h6 class="font-weight-bolder mb-0">
+                        Rp: {{ number_format ($totalKredit, 0, ',', '.') }}
+                        <span class="p-2"><i class="fa fa-arrow-down text-warning"></i></span>
+                        {{-- <span class="text-success text-sm font-weight-bolder">+3%</span> --}}
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="col-4 text-end">
+                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                      <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+          </a>
           </div>
-        </div>
-        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Cost</p>
-                    <h6 class="font-weight-bolder mb-0">
-                      Rp: {{ number_format ($totalKredit, 0, ',', '.') }}
-                      {{-- <span class="text-success text-sm font-weight-bolder">+3%</span> --}}
-                    </h6>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
           <div class="card">
             <div class="card-body p-3">
@@ -58,9 +64,13 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Saldo</p>
                     <h6 class="font-weight-bolder mb-0 
-                    <?php echo $totalSaldo > 0 ? '' : 
-                    ($totalSaldo == 0 ? 'text-warning' : 'text-danger'); ?>">
-                      Rp: <?php echo number_format($totalSaldo, 0, ',', '.'); ?>
+                    <?php echo $totalSaldo > 0 ? ''
+                    :($totalSaldo == 0 ? 'text-warning' 
+                    :'text-danger'); ?>">Rp
+                    : <?php echo number_format($totalSaldo, 0, ',', '.'); ?>
+                      <span class="p-2">
+                        <i class="{{ $totalSaldo > 0 ? 'fa fa-arrow-up text-success' : ($totalSaldo == 0 ? 'text-warning' : 'fa fa-arrow-down text-danger') }}"></i>
+                    </span>  
                   </h6>
                     {{-- <span class="text-danger text-sm font-weight-bolder">-2%</span> --}}
                   </div>
@@ -103,7 +113,6 @@
             <div class="card-header pb-0">
               <h6>Seminggu Terakhir</h6>
               <p class="text-sm">
-                {{-- <i class="fa fa-arrow-up text-success"></i> --}}
                 {{-- <span class="font-weight-bold">4% more</span> in 2021 --}}
               </p>
             </div>
